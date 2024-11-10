@@ -1,0 +1,370 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Anime App
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+ <link rel="stylesheet" href="index.css">
+ </head>
+ <body>
+  <div class="header">
+   <img alt="User profile picture" height="50" src="https://imgur.com/BWjDmgg.jpg" width="50"/>
+<div class="user-info">
+    <p id="greeting" class="text-bold"></p>
+ <div class="profile-name">
+    <span>oneanime (belom login)</span> <!-- Teks ini akan diganti dengan username dari Firebase -->
+</div>
+
+    <div class="rank">
+        <span class="level">Lv1</span>
+        <span class="rank-name">F-Rank</span>
+    </div>
+</div>
+   <div class="icons">
+<i class="fas fa-bell" onclick="window.location.href='notifikasi.html'"></i>
+    <i class="fas fa-search" onclick="window.location.href='pencarian.html'"></i>
+   </div>
+  </div>
+    <div id="notificationArea"></div>
+  <div class="feature-banner">
+  <p class="subscribe-text">Subscribe onekuyCH!</p>
+  <a href="https://youtube.com/@onekuych?si=Sa0tgah4YMrzsr5c" target="_blank">
+    <button>Subscribe</button>
+  </a>
+</div>
+</div>
+  </div>
+  <div class="last-watched" onclick="window.location='halaman-lain.html';" style="cursor: pointer;"> <!-- Ganti dengan URL halaman yang diinginkan -->
+    <img alt="Last watched anime thumbnail" height="80" src="https://imgur.com/BWjDmgg.jpg" width="80"/>
+    <div class="info">
+        <p>
+            Terakhir Ditonton
+        </p>
+        <p>
+            Maou Gakuin no Futekigousha Season 2 Part 2
+        </p>
+        <div class="episode">
+            <i class="fas fa-play-circle"></i>
+            <span>Episode 11</span>
+        </div>
+    </div>
+</div>
+  <div class="section-title">
+   <h2>Anime terbaru</h2>
+   <div class="view-schedule">
+     <a href="kalender.html">Lihat Jadwal</a>
+   </div>
+</div>
+<div class="anime-list">
+   <div class="anime-item">
+      <a href="touhai.html">
+         <img alt="Re Zero: Season 3" height="180" src="https://imgur.com/dOSFjwp.jpg" width="120"/>
+      </a>
+       <div class="episode-badge">Ep 1</div>
+      <p>Re:Zero kara Hajimeru Isekai Seikatsu Season 3 </p>
+   </div>
+   <div class="anime-item">
+      <a href="acro_trip.html">
+         <img alt="Blue Lock Season 2" height="180" src="https://imgur.com/SLe5qAV.jpg" width="120"/>
+      </a>
+       <div class="episode-badge">Ep 1</div>
+      <p>Blue Lock Season 2</p>
+   </div>
+   <div class="anime-item">
+      <a href="sengoku_youko.html">
+         <img alt="Dandadan" height="180" src="https://imgur.com/D9TtGpZ.jpg" width="120"/>
+      </a>
+      <div class="episode-badge">Ep 1</div>
+      <p>Dandadan</p>
+   </div>
+   <div class="anime-item">
+      <a href="my_hero_academia.html">
+         <img alt="Uzumaki" height="180" src="https://imgur.com/UndGXbr.jpg" width="120"/>
+      </a>
+     <div class="episode-badge">Ep 1</div>
+      <p>Uzumaki</p>
+   </div>
+   <div class="anime-item">
+      <a href="jujutsu_kaisen.html">
+         <img alt="wajutsushi" height="180" src="https://imgur.com/xfe3BIA.jpg" width="120"/>
+      </a>
+    <div class="episode-badge">Ep 1</div>
+      <p>wajutsushi</p>
+   </div>
+
+   <div class="anime-item">
+      <a href="one_piece.html">
+         <img alt="Trillion Game" height="180" src="https://imgur.com/fzcqKjq.jpg" width="120"/>
+      </a>
+    <div class="episode-badge">Ep 1</div>
+      <p>Trillion Game</p>
+   </div>
+   
+</div>
+  <div class="vip-section">
+  <button class="vip-button" onclick="goToVIP()">VIP</button>
+  <p class="vip-text">
+    Ingin mendapat fitur bagus lebih banyak? Yuk langganan VIP
+  </p>
+</div>
+<script>
+  function goToVIP() {
+    window.location.href = "vip.html";
+  }
+</script>
+ <div class="genre-section">
+   <h2>
+    Genre Pilihan
+   </h2>
+   <div class="genre-list">
+    <a href="movie.html">
+      <button>Movie</button>
+    </a>
+    <a href="action.html">
+      <button>Action</button>
+    </a>
+    <a href="adventure.html">
+      <button>Adventure</button>
+    </a>
+    <a href="comedy.html">
+      <button>Comedy</button>
+    </a>
+    <a href="demons.html">
+      <button>Demons</button>
+    </a>
+    <a href="drama.html">
+      <button>Drama</button>
+    </a>
+    <a href="ecchi.html">
+      <button>Ec*hi</button>
+    </a>
+    <a href="fantasy.html">
+      <button>Fantasy</button>
+    </a>
+    <a href="game.html">
+      <button>Game</button>
+    </a>
+    <a href="harem.html">
+      <button>Harem</button>
+    </a>
+    <a href="historical.html">
+      <button>Historical</button>
+    </a>
+    <a href="horror.html">
+      <button>Horror</button>
+    </a>
+    <a href="josei.html">
+      <button>Josei</button>
+    </a>
+    <a href="magic.html">
+      <button>Magic</button>
+    </a>
+    <a href="martial_arts.html">
+      <button>Martial Arts</button>
+    </a>
+    <a href="mecha.html">
+      <button>Mecha</button>
+    </a>
+    <a href="military.html">
+      <button>Military</button>
+    </a>
+    <a href="music.html">
+      <button>Music</button>
+    </a>
+    <a href="mystery.html">
+      <button>Mystery</button>
+    </a>
+    <a href="psychological.html">
+      <button>Psychological</button>
+    </a>
+    <a href="parody.html">
+      <button>Parody</button>
+    </a>
+    <a href="police.html">
+      <button>Police</button>
+    </a>
+    <a href="romance.html">
+      <button>Romance</button>
+    </a>
+    <a href="samurai.html">
+      <button>Samurai</button>
+    </a>
+    <a href="school.html">
+      <button>School</button>
+    </a>
+    <a href="sci-fi.html">
+      <button>Sci-Fi</button>
+    </a>
+    <a href="seinen.html">
+      <button>Seinen</button>
+    </a>
+    <a href="shoujo.html">
+      <button>Shoujo</button>
+    </a>
+    <a href="shoujo_ai.html">
+      <button>Shoujo Ai</button>
+    </a>
+    <a href="shounen.html">
+      <button>Shounen</button>
+    </a>
+    <a href="slice_of_life.html">
+      <button>Slice of Life</button>
+    </a>
+    <a href="sports.html">
+      <button>Sports</button>
+    </a>
+    <a href="space.html">
+      <button>Space</button>
+    </a>
+    <a href="super_power.html">
+      <button>Super Power</button>
+    </a>
+    <a href="supernatural.html">
+      <button>Supernatural</button>
+    </a>
+    <a href="thriller.html">
+      <button>Thriller</button>
+    </a>
+    <a href="vampire.html">
+      <button>Vampire</button>
+    </a>
+   </div>
+</div>
+
+
+<div class="footer-buttons">
+    <button onclick="window.open('https://sociabuzz.com/oneanime', '_blank')">
+        Donasi
+    </button>
+    <button onclick="window.open('https://www.instagram.com/ajibssena_/profilecard/?igsh=dm04MmRvYTduaHRv', '_blank')">
+        Instagram
+    </button>
+</div>
+  <div class="anime-movie-section">
+   <h2>
+    Anime Movie
+   </h2>
+   <div class="anime-movie-list">
+ <div class="anime-movie-list" id="animeList"></div>
+ 
+ 
+  <div class="bottom-nav">
+   
+<i class="fas fa-home" onclick="goToHome()" style="cursor: pointer;"></i>
+<script>
+  function goToHome() {
+    window.location.href = "index.html";
+  }
+</script>
+<i class="fas fa-calendar-alt" onclick="goToCalendar()" style="cursor: pointer;"></i>
+<script>
+  function goToCalendar() {
+    window.location.href = "kalender.html";
+  }
+</script>
+<i class="fas fa-book" onclick="goToSubscribe()" style="cursor: pointer;"></i>
+<script>
+  function goToSubscribe() {
+    window.location.href = "subscribe.html";
+  }
+</script>
+      <i class="fas fa-bell" onclick="goToNotification()" style="cursor: pointer;"></i>
+<script>
+  function goToNotification() {
+    window.location.href = "notifikasi.html";
+  }
+</script>
+<i class="fas fa-user" onclick="goToSetting()" style="cursor: pointer;"></i>
+<script>
+  function goToSetting() {
+    window.location.href = "setting.html";
+  }
+</script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script>
+    // Inisialisasi Firebase
+    var firebaseConfig = {
+        apiKey: "AIzaSyALE-ek0P4_dEKioxPAdNeEVkXkZq-teEY",
+        authDomain: "oneanime-cc892.firebaseapp.com",
+        databaseURL: "https://oneanime-cc892-default-rtdb.firebaseio.com",
+        projectId: "oneanime-cc892",
+        storageBucket: "oneanime-cc892.appspot.com",
+        messagingSenderId: "238220128240",
+        appId: "1:238220128240:web:a6e9f02911cede575d7735",
+        measurementId: "G-LZ2MRJHLRG"
+    };
+
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const database = firebase.database();
+
+    // Memantau status login pengguna
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // Pengguna sudah login, ambil username dan data lainnya dari Firebase
+            const userId = user.uid;
+            const userRef = firebase.database().ref(`users/${userId}`);
+
+            userRef.once('value')
+                .then(function(snapshot) {
+                    const userData = snapshot.val(); // Ambil data pengguna
+                    if (userData) {
+                        const username = userData.username;
+                        document.querySelector('.profile-name span').textContent = username;
+                    } else {
+                        console.error("Data pengguna tidak ditemukan.");
+                    }
+                })
+                .catch(function(error) {
+                    console.error("Terjadi kesalahan saat mengambil data pengguna:", error);
+                });
+        } else {
+            // Pengguna belum login, tampilkan peringatan
+            tampilkanPeringatan();
+        }
+    });
+
+    // Fungsi untuk menampilkan peringatan
+    function tampilkanPeringatan() {
+        // Menonaktifkan scroll pada body
+        document.body.style.overflow = 'hidden';
+
+        const peringatan = document.createElement('div');
+        peringatan.classList.add('peringatan');
+        peringatan.innerHTML = `
+            <div class="peringatan-box">
+                <span class="close-btn" onclick="tutupPeringatan()">×</span>
+                <p>Anda belum login. Untuk melanjutkan, silakan login terlebih dahulu.</p>
+                <a href="daftar.html" class="login-btn">Login Sekarang</a>
+            </div>
+        `;
+        document.body.appendChild(peringatan);
+    }
+
+    // Fungsi untuk menutup peringatan
+    function tutupPeringatan() {
+        const peringatan = document.querySelector('.peringatan');
+        if (peringatan) {
+            peringatan.remove();
+        }
+
+        // Mengaktifkan kembali scroll setelah peringatan ditutup
+        document.body.style.overflow = 'auto';
+    }
+</script>
+    <script type="module" src="./index.js"></script>
+  </div>
+ </body>
+</html>

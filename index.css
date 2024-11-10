@@ -1,0 +1,512 @@
+body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: black;
+            color: #fff;
+            padding-bottom: 60px; /* Add padding to the bottom to make space for the fixed bottom navigation */
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: black;
+        }
+        .header img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .header .user-info {
+            flex-grow: 1;
+        }
+        .header .user-info p {
+            margin: 0;
+        }
+        .header .user-info .rank {
+            display: flex;
+            align-items: center;
+        }
+        .header .user-info .rank span {
+            margin-left: 5px;
+            background-color: #3a3a3c;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        .header .icons {
+            display: flex;
+            align-items: center;
+        }
+        .header .icons i {
+            margin-left: 15px;
+            font-size: 20px;
+        }
+        .notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2b2b2b; /* Warna gelap */
+  color: #b3d9ff; /* Biru muda */
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 350px;
+  max-width: 90%;
+}
+
+.notification h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.notification p {
+  margin: 0;
+  font-size: 1.1rem;
+  word-wrap: break-word;
+}
+
+.notification .close-btn {
+  background-color: #007acc; /* Biru gelap */
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+.notification .close-btn:hover {
+  background-color: #005f99;
+}
+
+.hidden {
+  display: none;
+}
+        .feature-banner {
+  background-image: url('https://imgur.com/SJWSD6e.jpg'); /* Ganti dengan gambar pilihan */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Spasi antara teks dan tombol */
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  position: relative; /* Untuk overlay */
+  overflow: hidden;
+}
+
+/* Overlay gelap untuk membuat teks lebih terlihat */
+.feature-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Gelapkan gambar dengan overlay */
+  z-index: 1;
+}
+
+/* Teks dengan posisi di atas overlay */
+.subscribe-text {
+  font-size: 24px; 
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.95); /* Warna teks lebih terang */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Efek bayangan */
+  z-index: 2;
+  position: relative;
+  margin-left: 10px; /* Sedikit geser ke kiri */
+}
+
+/* Tombol tetap berada di atas overlay */
+.feature-banner button {
+  background-color: #00aaff; /* Warna tombol tetap */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+        .last-watched {
+    position: relative; /* Membuat elemen ini menjadi kontainer relatif untuk pseudo-elemen */
+    background-image: url('https://imgur.com/5fWQ3DI.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Mencegah overflow pada border-radius */
+}
+
+.last-watched::after {
+    content: ''; /* Membuat konten kosong untuk pseudo-elemen */
+    position: absolute; /* Memposisikan overlay secara absolut */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna gelap dengan transparansi */
+    border-radius: 10px; /* Sama dengan border-radius elemen induk */
+    z-index: 1; /* Memastikan overlay berada di atas gambar */
+}
+
+.last-watched img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 10px;
+    z-index: 2; /* Memastikan gambar berada di atas overlay */
+}
+
+.last-watched .info {
+    flex-grow: 1;
+    z-index: 2; /* Memastikan informasi berada di atas overlay */
+}
+
+.last-watched .info p {
+    margin: 0;
+}
+
+.last-watched .info .episode {
+    display: flex;
+    align-items: center;
+}
+
+.last-watched .info .episode i {
+    margin-right: 5px;
+}
+
+.last-watched a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengwarisi warna teks dari elemen yang dibungkus */
+    display: flex; /* Agar tetap merapikan layout flex */
+    z-index: 2; /* Memastikan tautan berada di atas overlay */
+}
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 10px;
+        }
+        .section-title h2 {
+            margin: 0;
+        }
+        
+        .view-schedule a {
+    text-decoration: none;
+    color: #4a90e2; /* Warna cyan */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.view-schedule a:hover {
+    text-decoration: underline;
+}
+        .anime-list {
+            display: flex;
+            overflow-x: scroll;
+            padding: 10px;
+        }
+        .anime-list .anime-item {
+    position: relative;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.anime-list .anime-item img {
+    width: 120px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.anime-list .anime-item .episode-badge {
+    position: absolute;
+    top: 5px; /* Posisi di pojok kiri atas */
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.7); /* Background gelap transparan */
+    color: white;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2; /* Pastikan berada di atas gambar */
+}
+        .anime-list .anime-item p {
+            margin: 5px 0 0 0;
+        }
+        .vip-section {
+            background-color: #3a3a3c;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .vip-section button {
+            background-color: #00aaff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .genre-section {
+            padding: 10px;
+            margin: 10px;
+        }
+        .genre-section .genre-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .genre-section .genre-list button {
+            background-color: #3a3a3c;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 10px;
+        }
+        .footer-buttons button {
+            background-color: #3a3a3c;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+            .anime-movie-list {
+    display: flex;
+    flex-wrap: wrap; /* Agar elemen bisa pindah ke baris berikutnya */
+    padding: 10px;
+    justify-content: space-between; /* Menjaga jarak antara elemen agar lebih seimbang */
+}
+
+.anime-movie-list {
+    display: flex;
+    flex-wrap: wrap; /* Agar elemen bisa pindah ke baris berikutnya */
+    padding: 10px;
+    justify-content: space-between; /* Menjaga jarak antara elemen agar lebih seimbang */
+}
+
+.anime-movie-list .anime-item {
+    width: calc(33.33% - 15px); /* Lebar setiap item 1/3 dari lebar container, dikurangi margin */
+    margin-bottom: 15px; /* Jarak antara baris */
+    text-align: center;
+    position: relative;
+}
+
+.anime-movie-list .anime-item img {
+    width: 140px; /* Ukuran gambar diperbesar */
+    height: 210px; /* Ukuran gambar diperbesar */
+    border-radius: 10px;
+}
+
+.anime-movie-list .anime-item p {
+    margin: 5px 0 0 0;
+}
+
+
+.anime-movie-list .anime-item p {
+    margin: 5px 0 0 0;
+}
+
+.rating {
+    position: absolute;
+    top: -1px;
+    right: -9px;
+    background-color: rgba(17,17,17,0.7);
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+.user-info {
+    display: inline-block; /* Tetap inline */
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya untuk greeting */
+#greeting {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 4px 0; /* Jarak antar elemen */
+    color: white;
+}
+
+/* Gaya untuk username */
+.username {
+    font-size: 15px;
+    font-weight: bold;
+    color: white; /* Warna biru terang */
+    margin: 0 0 8px 0; /* Jarak lebih besar dengan rank */
+}
+
+/* Gaya untuk rank */
+.rank {
+    margin-top: 4px; /* Sedikit turun agar tidak terlalu pres */
+}
+
+.rank span {
+    font-size: 14px;
+    color: white;
+    margin-right: 5px;
+}
+
+.rank .level {
+    font-weight: bold;
+}
+
+.rank .rank-name {
+    font-style: italic;
+    color: gray;
+}
+            .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #2c2c2e;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100vw;
+      left: 0;
+      margin: 0;
+    }
+
+    .bottom-nav i {
+      font-size: 24px;
+      color: white;
+    }
+        /* Menghilangkan outline pada semua elemen saat diklik */
+* {
+    outline: none; /* Menghilangkan garis luar pada semua elemen */
+}
+
+/* Menghilangkan efek pada semua elemen saat ditekan */
+:focus-visible {
+    outline: none; /* Menghilangkan outline saat elemen mendapatkan fokus */
+}
+
+/* Menghilangkan warna biru pada link dan elemen yang dapat diklik */
+a:focus,
+a:active {
+    outline: none; /* Menghilangkan outline pada link */
+    background-color: transparent; /* Menghilangkan latar belakang saat diklik */
+    color: inherit; /* Menggunakan warna teks yang sama */
+}
+
+/* Menghilangkan efek warna biru pada button */
+button {
+    outline: none; /* Menghilangkan outline pada button */
+    background-color: transparent; /* Menghilangkan latar belakang */
+    color: inherit; /* Menggunakan warna teks yang sama */
+    border: none; /* Menghilangkan border */
+}
+
+/* Khusus untuk button saat dihover dan active */
+button:hover,
+button:focus {
+    background-color: transparent; /* Menghilangkan latar belakang saat hover */
+    color: inherit; /* Menggunakan warna teks yang sama */
+}
+
+/* Mencegah efek warna biru pada elemen yang dapat diklik */
+.last-watched,
+button {
+    -webkit-tap-highlight-color: transparent; /* Menghilangkan highlight pada perangkat sentuh */
+    user-select: none; /* Mencegah pemilihan teks */
+}
+a {
+    text-decoration: none !important; /* Hilangkan garis bawah */
+}
+a {
+    -webkit-tap-highlight-color: transparent; /* Hilangkan highlight di perangkat sentuh */
+}
+
+
+    /* Peringatan sebagai overlay */
+    .peringatan {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);  /* Latar belakang transparan hitam */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* Kotak peringatan */
+    .peringatan-box {
+        background-color: #003b4aff;  /* Warna latar belakang sesuai dengan permintaan */
+        padding: 20px 30px;  /* Padding yang lebih cocok agar lebih tinggi */
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+        width: 250px;  /* Lebar kotak yang lebih pas untuk kotak */
+        text-align: center;
+        font-size: 16px;
+    }
+
+    /* Teks peringatan */
+    .peringatan-box p {
+        margin: 0;
+        font-weight: bold;
+        color: white;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+
+    /* Tombol tutup */
+    .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+    }
+
+    /* Tombol Login Sekarang */
+    .login-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #0066cc; /* Warna tombol */
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Hover effect pada tombol */
+    .login-btn:hover {
+        background-color: #004a99;
+    }

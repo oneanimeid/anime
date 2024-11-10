@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login - Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card h1 {
+            margin-bottom: 20px;
+        }
+        .group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: #003543;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #003543;
+        }
+        .google-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        
+        /* Tombol Akun Demo */
+.akun-demo-btn {
+    position: fixed;
+    top: 7px;
+    right: 23px;
+    background-color: #003543;
+    color: white;
+    padding: 10px 20px; /* Padding untuk ruang dalam tombol */
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 100;
+    width: 110px; /* Menentukan lebar tombol */
+    height: 50px; /* Menentukan tinggi tombol */
+}
+        .akun-demo-btn:hover {
+            background-color: #005a6d;
+        }
+
+        /* Responsif untuk perangkat kecil */
+        @media (max-width: 480px) {
+            .akun-demo-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tombol Akun Demo -->
+    <button class="akun-demo-btn" onclick="window.location.href='halaman.html'">Akun Demo</button>
+
+    <div class="container">
+        <div class="card">
+            <h1>Login dengan Google</h1>
+            <div class="group">
+                <button id="google-login">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-logo" alt="Google Logo"/>
+                    Login dengan Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+<!-- SDK Firebase versi 8 -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+    // Konfigurasi Firebase
+    var firebaseConfig = {
+        apiKey: "AIzaSyALE-ek0P4_dEKioxPAdNeEVkXkZq-teEY",
+        authDomain: "oneanime-cc892.firebaseapp.com",
+        databaseURL: "https://oneanime-cc892-default-rtdb.firebaseio.com",
+        projectId: "oneanime-cc892",
+        storageBucket: "oneanime-cc892.appspot.com",
+        messagingSenderId: "238220128240",
+        appId: "1:238220128240:web:a6e9f02911cede575d7735",
+        measurementId: "G-LZ2MRJHLRG"
+    };
+
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    var auth = firebase.auth();
+    var database = firebase.database();
+
+    // Fungsi untuk menangani klik tombol login Google
+    const googleLoginButton = document.querySelector('#google-login');
+    googleLoginButton.addEventListener('click', () => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).then(result => {
+            console.log("Login berhasil, user:", result.user);
+            simpanDataPengguna(result.user); // Simpan data hanya setelah login berhasil
+        }).catch(error => {
+            console.error("Error saat login:", error);
+        });
+    });
+
+    // Fungsi untuk menyimpan data pengguna ke Realtime Database
+    function simpanDataPengguna(user) {
+        var userRef = database.ref('users/' + user.uid);
+
+        userRef.once('value').then(snapshot => {
+            if (!snapshot.exists()) {
+                // Ambil ID tertinggi yang ada
+                database.ref('users').orderByChild('id').limitToLast(1).once('value').then(idSnapshot => {
+                    let nextId = 1000; // ID awal
+                    idSnapshot.forEach(child => {
+                        nextId = child.val().id + 1; // ID berikutnya
+                    });
+
+                    const userData = {
+                        email: user.email,
+                        username: user.displayName,
+                        profilePicture: user.photoURL,
+                        rank: 'rakyat',      // Rank default
+                        level: 0,            // Level awal
+                        id: nextId           // ID pengguna baru
+                    };
+
+                    // Simpan data pengguna ke Firebase
+                    userRef.set(userData).then(() => {
+                        console.log('Data pengguna berhasil disimpan.');
+                        window.location.href = 'halaman.html'; // Arahkan setelah data berhasil disimpan
+                    }).catch(error => {
+                        console.error('Gagal menyimpan data pengguna:', error);
+                    });
+                });
+            } else {
+                console.log('Data pengguna sudah ada.');
+                window.location.href = 'halaman.html'; // Pengguna sudah ada, arahkan ke halaman
+            }
+        }).catch(error => {
+            console.error('Gagal membaca data pengguna:', error);
+        });
+    }
+
+    // Memantau status login tanpa menyimpan data pengguna ulang
+    auth.onAuthStateChanged(user => {
+        console.log("Mendeteksi perubahan status auth...");
+        if (user) {
+            console.log("Pengguna sudah login, user:", user);
+            if (window.location.pathname !== '/halaman.html') {
+                window.location.href = 'halaman.html';
+            }
+        } else {
+            console.log("Pengguna belum login");
+        }
+    });
+</script>
+</body>
+</html>
